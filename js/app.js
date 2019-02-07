@@ -9,6 +9,12 @@ var respuesta1, respuesta2, respuesta3, respuesta4, respuesta5, respuesta6, resp
 //Respuesta 1
 function respuestaUno(evt) {
   respuesta1 = document.getElementById(evt.target.id).value
+  var contenedor = document.getElementsByClassName('contenedor')[0]
+  if (respuesta1 == 'a') {
+    contenedor.classList.add('hidden')
+  } else {
+    contenedor.classList.remove('hidden')
+  }
 }
 
 //Respuesta 2
@@ -1060,43 +1066,48 @@ function validarRespuestas() {
 
 
 function saveAndClear () {
+  // Obtengo la fecha actual
+  var fecha = new Date()
+  var month = fecha.getMonth() + 1
+  var fechaCompleta = fecha.getFullYear() + '-' + month + '-' + fecha.getDate() + ' ' + fecha.getHours() + ':' + fecha.getMinutes()
+
   var json = {
     resp1: respuesta1,
-    resp2: respuesta2,
-    resp3: respuesta3,
-    resp4: respuesta4,
-    resp5: respuesta5,
-    resp6: respuesta6,
-    resp7: respuesta7,
-    resp8: respuesta8,
-    resp9: respuesta9,
-    resp10: respuesta10,
-    resp11: respuesta11,
-    resp12: respuesta12,
-    resp13: respuesta13,
-    resp14: respuesta14,
-    resp15: respuesta15,
-    resp16: respuesta16,
-    resp17: respuesta17,
-    resp18: respuesta18,
-    resp19: respuesta19,
-    resp20: respuesta20,
-    resp21: respuesta21,
-    resp22: respuesta22,
-    resp23: respuesta23,
-    resp24: respuesta24,
-    resp25: respuesta25,
-    resp26: respuesta26,
-    resp27: respuesta27,
-    resp28: respuesta28,
-    resp29: respuesta29,
-    resp30: respuesta30,
-    resp31: respuesta31
+    resp2: respuesta2 || 'N/A',
+    resp3: respuesta3 || 'N/A',
+    resp4: respuesta4 || 'N/A',
+    resp5: respuesta5 || 'N/A',
+    resp6: respuesta6 || 'N/A',
+    resp7: respuesta7 || 'N/A',
+    resp8: respuesta8 || 'N/A',
+    resp9: respuesta9 || 'N/A',
+    resp10: respuesta10 || 'N/A',
+    resp11: respuesta11 || 'N/A',
+    resp12: respuesta12 || 'N/A',
+    resp13: respuesta13 || 'N/A',
+    resp14: respuesta14 || 'N/A',
+    resp15: respuesta15 || 'N/A',
+    resp16: respuesta16 || 'N/A',
+    resp17: respuesta17 || 'N/A',
+    resp18: respuesta18 || 'N/A',
+    resp19: respuesta19 || 'N/A',
+    resp20: respuesta20 || 'N/A',
+    resp21: respuesta21 || 'N/A',
+    resp22: respuesta22 || 'N/A',
+    resp23: respuesta23 || 'N/A',
+    resp24: respuesta24 || 'N/A',
+    resp25: respuesta25 || 'N/A',
+    resp26: respuesta26 || 'N/A',
+    resp27: respuesta27 || 'N/A',
+    resp28: respuesta28 || 'N/A',
+    resp29: respuesta29 || 'N/A',
+    resp30: respuesta30 || 'N/A',
+    resp31: respuesta31 || 'N/A',
+    fecha: fechaCompleta
   }
-  console.log(json)
   var db = firebase.firestore()
   db.collection('responses').add(json)
-
+  document.getElementById('formulario').reset()
 }
 
 var btnSubmit = document.getElementById('enviar')
@@ -1104,19 +1115,21 @@ btnSubmit.addEventListener('click', function (evt) {
   // prevent the refresh of the browser
   evt.preventDefault()
   var fillInput = false
-  if (respuesta2.length == 0) {
-    alert("Ingrese respuesta a la pregunta N° 2");
-    fillInput = true
-  }
+  if (respuesta1 != 'a') {
+    if (respuesta2.length == 0) {
+      alert("Ingrese respuesta a la pregunta N° 2");
+      fillInput = true
+    }
 
-  if (respuesta3.length == 0) {
-    alert("Ingrese respuesta a la pregunta N° 3");
-    fillInput = true
-  }
+    if (respuesta3.length == 0) {
+      alert("Ingrese respuesta a la pregunta N° 3");
+      fillInput = true
+    }
 
-  if (respuesta4.length == 0) {
-    alert("Ingrese respuesta a la pregunta N° 4");
-    fillInput = true
+    if (respuesta4.length == 0) {
+      alert("Ingrese respuesta a la pregunta N° 4");
+      fillInput = true
+    }
   }
 
   if (!fillInput) validarRespuestas()

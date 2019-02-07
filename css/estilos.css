@@ -1,7 +1,5 @@
 body {
-  padding-left: 8em;
   font-family: sans-serif;
-  color: #004d40;
   background-color: #ffffff
 }
 
@@ -21,7 +19,19 @@ h1 {
     border: -2px solid;
  }
 
+ .btn-container {
+   margin-bottom: 50px;
+ }
+
 span{
   font-family: sans-serif;
   color: #004d40;
+}
+
+td, th {
+  text-align: center !important;
+}
+
+.hidden {
+  display: none;
 }

@@ -4,7 +4,7 @@
     <title>Evaluacion de Riesgos</title>
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
+      <link rel="stylesheet" type="text/css" href="css/estilos.css">
        <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -31,17 +31,11 @@
     messagingSenderId: "856327358339"
   };
   firebase.initializeApp(config);
-  firebase.firestore().collection('responses')
-    .get().then((querySnapshot) => {
-      querySnapshot.forEach((data) => {
-        console.log(data.data())
-      })
-    })
-
 </script>
-    <form action="#" method="post" id="formulario" name="formulario" class="col s12">
-
-    <span for="pregunta1" > 1. ¿Estás embarazada ahora?: </span>   
+<div class="container">
+  <form action="#" method="post" id="formulario" name="formulario" class="col s12">
+  
+    <span for="pregunta1"> 1. ¿Estás embarazada ahora?: </span>
     <p>
       <label>
         <input class="with-gap" type="radio" name="group1" id="opcion1r1" value="a" onchange="respuestaUno(event)"><span>Si</span>
@@ -54,847 +48,969 @@
     </p>
     <p>
       <label>
-        <input class="with-gap" type="radio" name="group1" id="opcion3r1" value="c" onchange="respuestaUno(event)"><span>No se</span>
+        <input class="with-gap" type="radio" name="group1" id="opcion3r1" value="c" onchange="respuestaUno(event)"><span>No
+          se</span>
       </label>
     </p>
-   
-     
-     
-      <span for="pregunta2"> 2.  En el último mes (30 días), ¿cuántas veces has tenido sexo? </span> <br><br>
-      <input type="number" name="respuesta2" id="respuesta2" placeholder="Escriba su respuesta aquí:" required="required" onkeyup="respuestaDos(event)" class="validate">
+  
+  
+    <div class="contenedor">
+      <span for="pregunta2"> 2. En el último mes (30 días), ¿cuántas veces has tenido sexo? </span> <br><br>
+      <input type="number" name="respuesta2" id="respuesta2" placeholder="Escriba su respuesta aquí:" required="required"
+        onkeyup="respuestaDos(event)" class="validate">
       <br><br>
-
-      <span for="pregunta3"> 3.¿En el mes pasado (30 días), cuántas veces has tenido sexo sin protección para no embarazarte? Entendiendo “por no estar protegida contra el embarazo” las veces que tuviste sexo y no usaste condón, o píldoras, Depo-provera, el parche etc. para prevenir embarazo? </span> <br><br>
-      <input type="number" name="respuesta2" id="respuesta3" placeholder="Cuantas veces en el ultimo mes:" required="required" onkeyup="respuestaTres(event)" class="validate">
+      
+      <span for="pregunta3"> 3.¿En el mes pasado (30 días), cuántas veces has tenido sexo sin protección para no
+        embarazarte? Entendiendo “por no estar protegida contra el embarazo” las veces que tuviste sexo y no usaste condón,
+        o píldoras, Depo-provera, el parche etc. para prevenir embarazo? </span> <br><br>
+      <input type="number" name="respuesta2" id="respuesta3" placeholder="Cuantas veces en el ultimo mes:" required="required"
+        onkeyup="respuestaTres(event)" class="validate">
       <br><br>
-    
-
-      <span for="pregunta4"> 4. En el último mes (30 días), ¿cuántas veces ha tenido relaciones sexuales que NO fueron protegidas contra las infecciones de transmisión sexual (ITS)? Entendiendo “por no estar protegida contra ITS“ las veces que tuviste sexo sin usar condón con el papá de tu bebé, tu novio estable o con otro muchacho.      </span> <br><br>
-      <input type="number" name="respuesta2" id="respuesta3" placeholder="Cuantas veces en el ultimo mes:" required="required" onkeyup="respuestaCuatro(event)" class="validate">
+      
+      
+      <span for="pregunta4"> 4. En el último mes (30 días), ¿cuántas veces ha tenido relaciones sexuales que NO fueron
+        protegidas contra las infecciones de transmisión sexual (ITS)? Entendiendo “por no estar protegida contra ITS“ las
+        veces que tuviste sexo sin usar condón con el papá de tu bebé, tu novio estable o con otro muchacho. </span> <br><br>
+      <input type="number" name="respuesta2" id="respuesta3" placeholder="Cuantas veces en el ultimo mes:" required="required"
+        onkeyup="respuestaCuatro(event)" class="validate">
       <br><br>
-
+      
       <span for="pregunta5"> 5. En los últimos tres meses, ¿con qué parejas has tenido sexo? (Selecciona una)</span> <br><br>
-
+      
       <p>
         <label>
-          <input class="with-gap" type="radio" name="respuesta5" id="opcion1r5" value="a" onchange="respuestaCinco(event)"><span> No he tenido sexo en los últimos 3 meses.</span>
+          <input class="with-gap" type="radio" name="respuesta5" id="opcion1r5" value="a" onchange="respuestaCinco(event)"><span>
+            No he tenido sexo en los últimos 3 meses.</span>
         </label>
       </p>
       <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta5" id="opcion2r5" value="b" onchange="respuestaCinco(event)"><span for="opcion2r5"> Solamente he tenido sexo con el papa de mi bebé.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta5" id="opcion3r5" value="c" onchange="respuestaCinco(event)"><span for="opcion3r5">  He tenido sexo con el papa de mi bebé y también con chicas.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta5" id="opcion4r5" value="d" onchange="respuestaCinco(event)"><span for="opcion4r5">   He tenido sexo con mi novio y también con chicas.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label> 
-      <input class="with-gap" type="radio" name="respuesta5" id="opcion5r5" value="e" onchange="respuestaCinco(event)"><span for="opcion5r5">    Solamente he tenido sexo con mi novio estable.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta5" id="opcion6r5" value="f" onchange="respuestaCinco(event)"><span for="opcion6r5">     He tenido sexo con el papa de mi bebé y con otros chicos.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta5" id="opcion7r5" value="g" onchange="respuestaCinco(event)"><span for="opcion7r5">He tenido sexo con mi novio estable y otros chicos.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label> 
-      <input class="with-gap" type="radio" name="respuesta5" id="opcion8r5" value="h" onchange="respuestaCinco(event)"><span for="opcion8r5">Solamente he tenido sexo con chicas.</label>
-      <br>
-      </label>
-      </p>
-      <br><br>
-
-      <span for="pregunta6"> 6. En el próximo mes (30 días), ¿tienes intención de comenzar a tener relaciones sexuales? </spanspan>
-      <br><br>
-
-      <p>
-      <label>  
-
-      <input class="with-gap" type="radio" name="respuesta6" id="opcion1r6" value="a" onchange="respuestaSeis(event)"><span for="opcion1r6"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta6" id="opcion2r6" value="b" onchange="respuestaSeis(event)"><span for="opcion2r6"> No.</span>
-      <br><br>
-      </label>
-      </p>
-            
-      <spanspan for="pregunta7"> 7. ¿Cuánto tiempo han estado juntos tú y el padre de su bebé? </spanspan>
-      <br><br>
-
-      <p>
-      <label>   
-
-      <input class="with-gap" type="radio" name="respuesta7" id="opcion1r7" value="a" onchange="respuestaSiete(event)"><span for="opcion1r7"> Menos de 6 meses.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta7" id="opcion2r7" value="b" onchange="respuestaSiete(event)"><span for="opcion2r7"> Entre 6 meses y un año.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta7" id="opcion3r7" value="c" onchange="respuestaSiete(event)"><span for="opcion3r7"> Entre 1 año y 2 años. </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta7" id="opcion4r7" value="d" onchange="respuestaSiete(event)"><span for="opcion4r7"> Más de 2 años. </span>
-      <br><br>
-      </label>
-      </p>
-
-      <spanspan for="pregunta8"> 8. En los últimos 3 meses, cuando tienes sexo con el papá de tu bebé ¿qué tan seguido usan condón? </spanspan>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta8" id="opcion1r8" value="a" onchange="respuestaOcho(event)"><span for="opcion1r8"> Siempre.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta8" id="opcion2r8" value="b" onchange="respuestaOcho(event)"><span for="opcion2r8"> Casi siempre.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta8" id="opcion3r8" value="c" onchange="respuestaOcho(event)"><span for="opcion3r8"> Alrededor de la mitad de las veces. </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta8" id="opcion4r8" value="d" onchange="respuestaOcho(event)"><span for="opcion4r8"> Casi nunca. </span>
-      <br>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta8" id="opcion5r8" value="e" onchange="respuestaOcho(event)"><span for="opcion5r8"> Nunca. </span>
-      <br><br>
-      </label>
+        <label>
+          <input class="with-gap" type="radio" name="respuesta5" id="opcion2r5" value="b" onchange="respuestaCinco(event)"><span
+            for="opcion2r5"> Solamente he tenido sexo con el papa de mi bebé.</span>
+          <br>
+        </label>
       </p>
       
-      <spanspan for="pregunta9"> 9.  ¿Tiene planes de MANTENER EL USO de condones cada vez que tenga relaciones sexuales con el padre de su bebé?  </spanspan>
-      <br><br>
-
       <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta9" id="opcion1r9" value="a" onchange="respuestaNueve(event)"><span for="opcion1r9"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta9" id="opcion2r9" value="b" onchange="respuestaNueve(event)"><span for="opcion2r9"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap"  type="radio" name="respuesta9" id="opcion3r9" value="c" onchange="respuestaNueve(event)"><span for="opcion3r9"> No estoy seguro. </span>
-      <br><br>
-      </label>
+        <label>
+          <input class="with-gap" type="radio" name="respuesta5" id="opcion3r5" value="c" onchange="respuestaCinco(event)"><span
+            for="opcion3r5"> He tenido sexo con el papa de mi bebé y también con chicas.</span>
+          <br>
+        </label>
       </p>
       
-      <spanspan for="pregunta10"> 10. En el próximo mes (30 días), ¿tiene intención de para comenzar a usar condones CADA VEZ que tenga relaciones sexuales con el padre de su bebé?  </spanspan>
-      <br><br>
-
       <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta10" id="opcion1r10" value="a" onchange="respuestaDiez(event)"><span for="opcion1r10"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta10" id="opcion2r10" value="b" onchange="respuestaDiez(event)"><span for="opcion2r10"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta10" id="opcion3r10" value="c" onchange="respuestaDiez(event)"><span for="opcion3r10"> No estoy seguro. </span>
-      <br><br>
-      </label>
+        <label>
+          <input class="with-gap" type="radio" name="respuesta5" id="opcion4r5" value="d" onchange="respuestaCinco(event)"><span
+            for="opcion4r5"> He tenido sexo con mi novio y también con chicas.</span>
+          <br>
+        </label>
       </p>
       
-      <spanspan for="pregunta11"> 11. ¿Cuánto tiempo han estado juntos usted y su novio estable?  </spanspan>
-      <br><br>
-
       <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta11" id="opcion1r11" value="a" onchange="respuestaOnce(event)"><span for="opcion1r11"> Menos de 6 meses.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta11" id="opcion2r11" value="b" onchange="respuestaOnce(event)"><span for="opcion2r11"> Entre 6 meses y un año.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta11" id="opcion3r11" value="c" onchange="respuestaOnce(event)"><span for="opcion3r11"> Entre 1 año y 2 años. </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta11" id="opcion4r11" value="d" onchange="respuestaOnce(event)"><span for="opcion4r11"> Más de 2 años. </span>
-      <br><br>
-      </label>
+        <label>
+          <input class="with-gap" type="radio" name="respuesta5" id="opcion5r5" value="e" onchange="respuestaCinco(event)"><span
+            for="opcion5r5"> Solamente he tenido sexo con mi novio estable.</span>
+          <br>
+        </label>
       </p>
       
-      <spanspan for="pregunta12"> 12. Durante los últimos 3 meses, cuando tuvo relaciones sexuales con su novio estable, ¿con qué frecuencia usó un condón?   </spanspan>
-      <br><br>
-
       <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta12" id="opcion1r12" value="a" onchange="respuestaDoce(event)"><span for="opcion1r12">Cada vez .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta12" id="opcion2r12" value="b" onchange="respuestaDoce(event)"><span for="opcion2r12"> Casi siempre .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta12" id="opcion3r12" value="c" onchange="respuestaDoce(event)"><span for="opcion3r12"> Casi la mitad de las veces . </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta12" id="opcion4r12" value="d" onchange="respuestaDoce(event)"><span for="opcion4r12"> Casi nunca . </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta12" id="opcion5r12" value="e" onchange="respuestaDoce(event)"><span for="opcion5r12"> Nunca  . </span>
-      <br><br>
-      </label>
+        <label>
+          <input class="with-gap" type="radio" name="respuesta5" id="opcion6r5" value="f" onchange="respuestaCinco(event)"><span
+            for="opcion6r5"> He tenido sexo con el papa de mi bebé y con otros chicos.</span>
+          <br>
+        </label>
       </p>
       
-      <span for="pregunta13"> 13. ¿Planea SEGUIR USANDO condones CADA VEZ que tiene relaciones sexuales con su novio estable?  </span>
-      <br><br>
-      </label>
-      </p>
-
       <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta13" id="opcion1r13" value="a" onchange="respuestaTrece(event)"><span for="opcion1r13"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta13" id="opcion2r13" value="b" onchange="respuestaTrece(event)"><span for="opcion2r13"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta13" id="opcion3r13" value="c" onchange="respuestaTrece(event)"><span for="opcion3r13"> No estoy seguro. </span>
-      <br><br>
-      </label>
+        <label>
+          <input class="with-gap" type="radio" name="respuesta5" id="opcion7r5" value="g" onchange="respuestaCinco(event)"><span
+            for="opcion7r5">He tenido sexo con mi novio estable y otros chicos.</span>
+          <br>
+        </label>
       </p>
       
-      <span for="pregunta14"> 14. En el próximo mes (30 días), ¿tiene intención de comenzar a usar condones CADA VEZ que tenga relaciones sexuales con su novio estable?  </span>
+      <p>
+        <label>
+          <input class="with-gap" type="radio" name="respuesta5" id="opcion8r5" value="h" onchange="respuestaCinco(event)"><span
+            for="opcion8r5">Solamente he tenido sexo con chicas.</label>
+        <br>
+        </label>
+      </p>
       <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta14" id="opcion1r14" value="a" onchange="respuestaCatorce(event)"><span for="opcion1r14"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta14" id="opcion2r14" value="b" onchange="respuestaCatorce(event)"><span for="opcion2r14"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta14" id="opcion3r14" value="c" onchange="respuestaCatorce(event)"><span for="opcion3r14"> No estoy seguro. </span>
-      <br><br>
-      </label>
-      </p>
       
-     <span for="pregunta15">15. En los últimos 3 meses, cuando tuvo relaciones sexuales con otros hombres, ¿Con qué frecuencia usó un condón?   </span>
-      <br><br>
-      </label>
-      </p>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta15" id="opcion1r15" value="a" onchange="respuestaQuince(event)"><span for="opcion1r15">Cada vez .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta15" id="opcion2r15" value="b" onchange="respuestaQuince(event)"><span for="opcion2r15"> Casi siempre .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta15" id="opcion3r15" value="c" onchange="respuestaQuince(event)"><span for="opcion3r15"> Casi la mitad de las veces . </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta15" id="opcion4r15" value="d" onchange="respuestaQuince(event)"><span for="opcion4r15"> Casi nunca . </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta15" id="opcion5r15" value="e" onchange="respuestaQuince(event)"><span for="opcion5r15"> Nunca  . </span>
-      <br><br>
-      </label>
-      </p>
+      <span for="pregunta6"> 6. En el próximo mes (30 días), ¿tienes intención de comenzar a tener relaciones sexuales?
+        </spanspan>
+        <br><br>
       
-      <span for="pregunta16">16. ¿Planea SEGUIR USANDO condones CADA VEZ que tenga relaciones sexuales con otros hombres?  </span>
-      <br><br>
-      </label>
-      </p>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta16" id="opcion1r16" value="a" onchange="respuestaDieciseis(event)"><span for="opcion1r16"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta16" id="opcion2r16" value="b" onchange="respuestaDieciseis(event)"><span for="opcion2r16"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta16" id="opcion3r16" value="c" onchange="respuestaDieciseis(event)"><span for="opcion3r16"> No estoy seguro. </span>
-      <br><br>
-      </label>
-      </p>
+        <p>
+          <label>
       
-      <span for="pregunta17">17. En el próximo mes (30 días), ¿tiene intención de comenzar a usar condones CADA VEZ que tenga relaciones sexuales con otros hombres?  </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta17" id="opcion1r17" value="a" onchange="respuestaDiecisiete(event)"><span for="opcion1r17"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta17" id="opcion2r17" value="b" onchange="respuestaDiecisiete(event)"><span for="opcion2r17"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input type="radio" name="respuesta17" id="opcion3r17" value="c" onchange="respuestaDiecisiete(event)"><span for="opcion3r17"> No estoy seguro. </span>
-      <br><br>
-      </label>
-      </p>
+            <input class="with-gap" type="radio" name="respuesta6" id="opcion1r6" value="a" onchange="respuestaSeis(event)"><span
+              for="opcion1r6"> Si.</span>
+            <br>
+          </label>
+        </p>
       
-      <span for="pregunta18">18. ¿Está usando algún tipo de anticonceptivo o anticonceptivo ahora mismo?  </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta18" id="opcion1r18" value="a" onchange="respuestaDieciocho(event)"><span for="opcion1r18"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta18" id="opcion2r18" value="b" onchange="respuestaDieciocho(event)"><span for="opcion2r18"> No.</span>
-      <br><br>
-      </label>
-      </p>
-
-      <span for="pregunta19"> 19. ¿Qué tipo de método anticonceptivo está usando ahora?   </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta19" id="opcion1r19" value="a" onchange="respuestaDiecinueve(event)"><span for="opcion1r19"> Sólo condones, cada vez .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta19" id="opcion2r19" value="b" onchange="respuestaDiecinueve(event)"><span for="opcion2r19"> Sólo condones, la mayor parte del tiempo.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta19" id="opcion3r19" value="c" onchange="respuestaDiecinueve(event)"><span for="opcion3r19"> Anticoncepción de emergencia.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta19" id="opcion4r19" value="d" onchange="respuestaDiecinueve(event)"><span for="opcion4r19"> Píldoras anticonceptivas.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta19" id="opcion5r19" value="e" onchange="respuestaDiecinueve(event)"><span for="opcion5r19"> Inyección de Depo-Provera.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta19" id="opcion6r19" value="f" onchange="respuestaDiecinueve(event)"><span for="opcion6r19"> Anillo vaginal.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta19" id="opcion7r19" value="g" onchange="respuestaDiecinueve(event)"><span for="opcion7r19"> Parche.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta19" id="opcion8r19" value="h" onchange="respuestaDiecinueve(event)"><span for="opcion8r19"> Implanon (Implante hormonal) o DIU (dispositivo intrauterino) .</span>
-      <br><br>
-      </label>
-      </p>
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta6" id="opcion2r6" value="b" onchange="respuestaSeis(event)"><span
+              for="opcion2r6"> No.</span>
+            <br><br>
+          </label>
+        </p>
       
-      <span for="pregunta20"> 20. ¿Cuánto tiempo ha estado tomando píldoras anticonceptivas?   </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta20" id="opcion1r20" value="a" onchange="respuestaVeinte(event)"><span for="opcion1r20"> Un mes o menos  .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta20" id="opcion2r20" value="b" onchange="respuestaVeinte(event)"><span for="opcion2r20"> Más de un mes pero menos de 6 meses .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta20" id="opcion3r20" value="c" onchange="respuestaVeinte(event)"><span for="opcion3r20"> 6 meses o más..</span>
-      <br><br>
-      </label>
-      </p>
+        <spanspan for="pregunta7"> 7. ¿Cuánto tiempo han estado juntos tú y el padre de su bebé? </spanspan>
+        <br><br>
       
-      <span for="pregunta21"> 21. ¿Cuántas veces en el último mes (30 días) olvidó u olvidó una píldora?   </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta21" id="opcion1r21" value="a" onchange="respuestaVeintiuno(event)"><span for="opcion1r21"> Nunca.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta21" id="opcion2r21" value="b" onchange="respuestaVeintiuno(event)"><span for="opcion2r21"> Una vez.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta21" id="opcion3r21" value="c" onchange="respuestaVeintiuno(event)"><span for="opcion3r21"> Dos veces .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta21" id="opcion4r21" value="d" onchange="respuestaVeintiuno(event)"><span for="opcion4r21"> Tres o más.</span>
-      <br><br>
-      </label>
-      </p>
+        <p>
+          <label>
       
-      <span for="pregunta22">22. ¿Planeas MANTENER TOMAR píldoras anticonceptivas?  </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta22" id="opcion1r22" value="a" onchange="respuestaVeintidos(event)"><span for="opcion1r22"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta22" id="opcion2r22" value="b" onchange="respuestaVeintidos(event)"><span for="opcion2r22"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta22" id="opcion3r22" value="c" onchange="respuestaVeintidos(event)"><span for="opcion3r22"> No estoy seguro. </span>
-      <br><br>
-      </label>
-      </p>
+            <input class="with-gap" type="radio" name="respuesta7" id="opcion1r7" value="a" onchange="respuestaSiete(event)"><span
+              for="opcion1r7"> Menos de 6 meses.</span>
+            <br>
+          </label>
+        </p>
       
-      <span for="pregunta23">23. ¿Cuánto tiempo ha estado usando la vacuna Depo-Provera?  </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta23" id="opcion1r23" value="a" onchange="respuestaVeintitres(event)"><span for="opcion1r23"> Un mes o menos .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta23" id="opcion2r23" value="b" onchange="respuestaVeintitres(event)"><span for="opcion2r23"> Más de un mes pero menos de 6 meses .</span>
-      <br>
-      </label>
-      </p>
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta7" id="opcion2r7" value="b" onchange="respuestaSiete(event)"><span
+              for="opcion2r7"> Entre 6 meses y un año.</span>
+            <br>
+          </label>
+        </p>
       
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta23" id="opcion3r23" value="c" onchange="respuestaVeintitres(event)"><span for="opcion3r23"> 6 meses o más . </span>
-      <br><br>
-      </label>
-      </p>
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta7" id="opcion3r7" value="c" onchange="respuestaSiete(event)"><span
+              for="opcion3r7"> Entre 1 año y 2 años. </span>
+            <br>
+          </label>
+        </p>
       
-      <span for="pregunta24">24. ¿Cuántas veces en los últimos 6 meses ha perdido la oportunidad de tomar su Depo-Provera a tiempo? </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta24" id="opcion1r24" value="a" onchange="respuestaVeinticuatro(event)"><span for="opcion1r24"> Nunca .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta24" id="opcion2r24" value="b" onchange="respuestaVeinticuatro(event)"><span for="opcion2r24"> Una vez .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta24" id="opcion3r24" value="c" onchange="respuestaVeinticuatro(event)"><span for="opcion3r24"> Dos veces . </span>
-      <br><br>
-      </label>
-      </p>
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta7" id="opcion4r7" value="d" onchange="respuestaSiete(event)"><span
+              for="opcion4r7"> Más de 2 años. </span>
+            <br><br>
+          </label>
+        </p>
       
-      <span for="pregunta25">25. ¿Planea SEGUIR RECIBIENDO las inyecciones Depo-Provera cada 3 meses? </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta25" id="opcion1r25" value="a" onchange="respuestaVeinticinco(event)"><span for="opcion1r25"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta25" id="opcion2r25" value="b" onchange="respuestaVeinticinco(event)"><span for="opcion2r25"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta25" id="opcion3r25" value="c" onchange="respuestaVeinticinco(event)"><span for="opcion3r25"> No estoy seguro. </span>
-      <br><br>
-      </label>
-      </p>
+        <spanspan for="pregunta8"> 8. En los últimos 3 meses, cuando tienes sexo con el papá de tu bebé ¿qué tan seguido
+          usan condón? </spanspan>
+        <br><br>
       
-      <span for="pregunta26">26. ¿Cuánto tiempo ha estado usando el parche anticonceptivo o el anillo vaginal?  </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta26" id="opcion1r26" value="a" onchange="respuestaVeintiseis(event)"><span for="opcion1r26"> Un mes o menos .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta26" id="opcion2r26" value="b" onchange="respuestaVeintiseis(event)"><span for="opcion2r26"> Más de un mes pero menos de 6 meses .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta26" id="opcion3r26" value="c" onchange="respuestaVeintiseis(event)"><span for="opcion3r26"> 6 meses o más . </span>
-      <br><br>
-      </label>
-      </p>
-
-      <span for="pregunta27"> 27. ¿Cuántas veces en el mes pasado (30 días) NO se ha puesto el parche anticonceptivo o NO usó su anillo vaginal cuando se suponía que lo hicieras?  </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta27" id="opcion1r27" value="a" onchange="respuestaVeintisiete(event)"><span for="opcion1r27"> Nunca .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta27" id="opcion2r27" value="c" onchange="respuestaVeintisiete(event)"><span for="opcion2r27"> Una vez .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta27" id="opcion3r27" value="d" onchange="respuestaVeintisiete(event)"><span for="opcion3r27"> Dos veces . </span>
-      <br><br>
-      </label>
-      </p>
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta8" id="opcion1r8" value="a" onchange="respuestaOcho(event)"><span
+              for="opcion1r8"> Siempre.</span>
+            <br>
+          </label>
+        </p>
       
-      <span for="pregunta28">28. ¿Planea MANTENER USANDO el parche anticonceptivo o anillo vaginal?  </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta28" id="opcion1r28" value="a" onchange="respuestaVeintiocho(event)"><span for="opcion1r28"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta28" id="opcion2r28" value="b" onchange="respuestaVeintiocho(event)"><span for="opcion2r28"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta28" id="opcion3r28" value="c" onchange="respuestaVeintiocho(event)"><span for="opcion3r28"> No estoy seguro. </span>
-      <br><br>
-      </label>
-      </p>
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta8" id="opcion2r8" value="b" onchange="respuestaOcho(event)"><span
+              for="opcion2r8"> Casi siempre.</span>
+            <br>
+          </label>
+        </p>
       
-      <span for="pregunta29">29. ¿Cuánto tiempo ha estado usando Implanon o el DIU para la prevención de embarazo? </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta29" id="opcion1r29" value="a" onchange="respuestaVeintinueve(event)"><span for="opcion1r29"> Un mes o menos .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta29" id="opcion2r29" value="b" onchange="respuestaVeintinueve(event)"><span for="opcion2r29"> Más de un mes pero menos de 6 meses .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta29" id="opcion3r29" value="c" onchange="respuestaVeintinueve(event)"><span for="opcion3r29"> 6 meses o más . </span>
-      <br><br>
-      </label>
-      </p>
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta8" id="opcion3r8" value="c" onchange="respuestaOcho(event)"><span
+              for="opcion3r8"> Alrededor de la mitad de las veces. </span>
+            <br>
+          </label>
+        </p>
       
-      <span for="pregunta30">30. ¿Planea SEGUIR USANDO Implanon o el DIU como método anticonceptivo?  </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta30" id="opcion1r30" value="a" onchange="respuestaTreinta(event)"><span for="opcion1r30"> Si.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta30" id="opcion2r30" value="b" onchange="respuestaTreinta(event)"><span for="opcion2r30"> No.</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta30" id="opcion3r30" value="c" onchange="respuestaTreinta(event)"><span for="opcion3r30"> No estoy seguro. </span>
-      <br><br>
-      </label>
-      </p>
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta8" id="opcion4r8" value="d" onchange="respuestaOcho(event)"><span
+              for="opcion4r8"> Casi nunca. </span>
+            <br>
       
-      <span for="pregunta31">31. En el próximo mes (30 días), ¿qué tipo de control de natalidad piensa comenzar a usar?  </span>
-      <br><br>
-
-      <p>
-      <label>   
-      <input class="with-gap" type="radio" name="respuesta31" id="opcion1r31" value="a" onchange="respuestaTreintayuno(event)"><span for="opcion1r31"> Píldoras anticonceptivas .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta31" id="opcion2r31" value="b" onchange="respuestaTreintayuno(event)"><span for="opcion2r31"> Inyecciones de Depo-Provera .</span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta31" id="opcion3r31" value="c" onchange="respuestaTreintayuno(event)"><span for="opcion3r31"> Anillo vaginal. </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta31" id="opcion4r31" value="d" onchange="respuestaTreintayuno(event)"><span for="opcion4r31"> Parche. </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta31" id="opcion5r31" value="e" onchange="respuestaTreintayuno(event)"><span for="opcion5r31"> Implanon (Implante hormonal) o DIU (dispositivo intrauterino). </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta31" id="opcion6r31" value="f" onchange="respuestaTreintayuno(event)"><span for="opcion6r31"> Sólo condones. </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta31" id="opcion7r31" value="g" onchange="respuestaTreintayuno(event)"><span for="opcion7r31"> Anticoncepción de emergencia. </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta31" id="opcion8r31" value="h" onchange="respuestaTreintayuno(event)"><span for="opcion8r31"> Nada. </span>
-      <br>
-      </label>
-      </p>
-
-      <p>
-      <label>
-      <input class="with-gap" type="radio" name="respuesta31" id="opcion9r31" value="i" onchange="respuestaTreintayuno(event)"><span for="opcion9r31"> Otro. </span>
-      <br><br>
-      </label>
-      </p>
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta8" id="opcion5r8" value="e" onchange="respuestaOcho(event)"><span
+                  for="opcion5r8"> Nunca. </span>
+                <br><br>
+              </label>
+            </p>
       
-    
-      <input class="btn waves-effect waves-light" type="submit" name="enviar" id="enviar" value="Enviar" class = "boton" >
-
-     
-    </form>
-
-    <script src="js/app.js"></script>
-
-
-  </body>
+            <spanspan for="pregunta9"> 9. ¿Tiene planes de MANTENER EL USO de condones cada vez que tenga relaciones
+              sexuales con el padre de su bebé? </spanspan>
+            <br><br>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta9" id="opcion1r9" value="a" onchange="respuestaNueve(event)"><span
+                  for="opcion1r9"> Si.</span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta9" id="opcion2r9" value="b" onchange="respuestaNueve(event)"><span
+                  for="opcion2r9"> No.</span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta9" id="opcion3r9" value="c" onchange="respuestaNueve(event)"><span
+                  for="opcion3r9"> No estoy seguro. </span>
+                <br><br>
+              </label>
+            </p>
+      
+            <spanspan for="pregunta10"> 10. En el próximo mes (30 días), ¿tiene intención de para comenzar a usar condones
+              CADA VEZ que tenga relaciones sexuales con el padre de su bebé? </spanspan>
+            <br><br>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta10" id="opcion1r10" value="a" onchange="respuestaDiez(event)"><span
+                  for="opcion1r10"> Si.</span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta10" id="opcion2r10" value="b" onchange="respuestaDiez(event)"><span
+                  for="opcion2r10"> No.</span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta10" id="opcion3r10" value="c" onchange="respuestaDiez(event)"><span
+                  for="opcion3r10"> No estoy seguro. </span>
+                <br><br>
+              </label>
+            </p>
+      
+            <spanspan for="pregunta11"> 11. ¿Cuánto tiempo han estado juntos usted y su novio estable? </spanspan>
+            <br><br>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta11" id="opcion1r11" value="a" onchange="respuestaOnce(event)"><span
+                  for="opcion1r11"> Menos de 6 meses.</span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta11" id="opcion2r11" value="b" onchange="respuestaOnce(event)"><span
+                  for="opcion2r11"> Entre 6 meses y un año.</span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta11" id="opcion3r11" value="c" onchange="respuestaOnce(event)"><span
+                  for="opcion3r11"> Entre 1 año y 2 años. </span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta11" id="opcion4r11" value="d" onchange="respuestaOnce(event)"><span
+                  for="opcion4r11"> Más de 2 años. </span>
+                <br><br>
+              </label>
+            </p>
+      
+            <spanspan for="pregunta12"> 12. Durante los últimos 3 meses, cuando tuvo relaciones sexuales con su novio
+              estable, ¿con qué frecuencia usó un condón? </spanspan>
+            <br><br>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta12" id="opcion1r12" value="a" onchange="respuestaDoce(event)"><span
+                  for="opcion1r12">Cada vez .</span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta12" id="opcion2r12" value="b" onchange="respuestaDoce(event)"><span
+                  for="opcion2r12"> Casi siempre .</span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta12" id="opcion3r12" value="c" onchange="respuestaDoce(event)"><span
+                  for="opcion3r12"> Casi la mitad de las veces . </span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta12" id="opcion4r12" value="d" onchange="respuestaDoce(event)"><span
+                  for="opcion4r12"> Casi nunca . </span>
+                <br>
+              </label>
+            </p>
+      
+            <p>
+              <label>
+                <input class="with-gap" type="radio" name="respuesta12" id="opcion5r12" value="e" onchange="respuestaDoce(event)"><span
+                  for="opcion5r12"> Nunca . </span>
+                <br><br>
+              </label>
+            </p>
+      
+            <span for="pregunta13"> 13. ¿Planea SEGUIR USANDO condones CADA VEZ que tiene relaciones sexuales con su novio
+              estable? </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta13" id="opcion1r13" value="a" onchange="respuestaTrece(event)"><span
+              for="opcion1r13"> Si.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta13" id="opcion2r13" value="b" onchange="respuestaTrece(event)"><span
+              for="opcion2r13"> No.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta13" id="opcion3r13" value="c" onchange="respuestaTrece(event)"><span
+              for="opcion3r13"> No estoy seguro. </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta14"> 14. En el próximo mes (30 días), ¿tiene intención de comenzar a usar condones CADA VEZ que
+          tenga relaciones sexuales con su novio estable? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta14" id="opcion1r14" value="a" onchange="respuestaCatorce(event)"><span
+              for="opcion1r14"> Si.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta14" id="opcion2r14" value="b" onchange="respuestaCatorce(event)"><span
+              for="opcion2r14"> No.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta14" id="opcion3r14" value="c" onchange="respuestaCatorce(event)"><span
+              for="opcion3r14"> No estoy seguro. </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta15">15. En los últimos 3 meses, cuando tuvo relaciones sexuales con otros hombres, ¿Con qué
+          frecuencia usó un condón? </span>
+        <br><br>
+        </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta15" id="opcion1r15" value="a" onchange="respuestaQuince(event)"><span
+              for="opcion1r15">Cada vez .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta15" id="opcion2r15" value="b" onchange="respuestaQuince(event)"><span
+              for="opcion2r15"> Casi siempre .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta15" id="opcion3r15" value="c" onchange="respuestaQuince(event)"><span
+              for="opcion3r15"> Casi la mitad de las veces . </span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta15" id="opcion4r15" value="d" onchange="respuestaQuince(event)"><span
+              for="opcion4r15"> Casi nunca . </span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta15" id="opcion5r15" value="e" onchange="respuestaQuince(event)"><span
+              for="opcion5r15"> Nunca . </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta16">16. ¿Planea SEGUIR USANDO condones CADA VEZ que tenga relaciones sexuales con otros hombres?
+        </span>
+        <br><br>
+        </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta16" id="opcion1r16" value="a" onchange="respuestaDieciseis(event)"><span
+              for="opcion1r16"> Si.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta16" id="opcion2r16" value="b" onchange="respuestaDieciseis(event)"><span
+              for="opcion2r16"> No.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta16" id="opcion3r16" value="c" onchange="respuestaDieciseis(event)"><span
+              for="opcion3r16"> No estoy seguro. </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta17">17. En el próximo mes (30 días), ¿tiene intención de comenzar a usar condones CADA VEZ que
+          tenga relaciones sexuales con otros hombres? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta17" id="opcion1r17" value="a" onchange="respuestaDiecisiete(event)"><span
+              for="opcion1r17"> Si.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta17" id="opcion2r17" value="b" onchange="respuestaDiecisiete(event)"><span
+              for="opcion2r17"> No.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input type="radio" name="respuesta17" id="opcion3r17" value="c" onchange="respuestaDiecisiete(event)"><span for="opcion3r17">
+              No estoy seguro. </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta18">18. ¿Está usando algún tipo de anticonceptivo o anticonceptivo ahora mismo? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta18" id="opcion1r18" value="a" onchange="respuestaDieciocho(event)"><span
+              for="opcion1r18"> Si.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta18" id="opcion2r18" value="b" onchange="respuestaDieciocho(event)"><span
+              for="opcion2r18"> No.</span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta19"> 19. ¿Qué tipo de método anticonceptivo está usando ahora? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta19" id="opcion1r19" value="a" onchange="respuestaDiecinueve(event)"><span
+              for="opcion1r19"> Sólo condones, cada vez .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta19" id="opcion2r19" value="b" onchange="respuestaDiecinueve(event)"><span
+              for="opcion2r19"> Sólo condones, la mayor parte del tiempo.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta19" id="opcion3r19" value="c" onchange="respuestaDiecinueve(event)"><span
+              for="opcion3r19"> Anticoncepción de emergencia.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta19" id="opcion4r19" value="d" onchange="respuestaDiecinueve(event)"><span
+              for="opcion4r19"> Píldoras anticonceptivas.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta19" id="opcion5r19" value="e" onchange="respuestaDiecinueve(event)"><span
+              for="opcion5r19"> Inyección de Depo-Provera.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta19" id="opcion6r19" value="f" onchange="respuestaDiecinueve(event)"><span
+              for="opcion6r19"> Anillo vaginal.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta19" id="opcion7r19" value="g" onchange="respuestaDiecinueve(event)"><span
+              for="opcion7r19"> Parche.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta19" id="opcion8r19" value="h" onchange="respuestaDiecinueve(event)"><span
+              for="opcion8r19"> Implanon (Implante hormonal) o DIU (dispositivo intrauterino) .</span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta20"> 20. ¿Cuánto tiempo ha estado tomando píldoras anticonceptivas? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta20" id="opcion1r20" value="a" onchange="respuestaVeinte(event)"><span
+              for="opcion1r20"> Un mes o menos .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta20" id="opcion2r20" value="b" onchange="respuestaVeinte(event)"><span
+              for="opcion2r20"> Más de un mes pero menos de 6 meses .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta20" id="opcion3r20" value="c" onchange="respuestaVeinte(event)"><span
+              for="opcion3r20"> 6 meses o más..</span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta21"> 21. ¿Cuántas veces en el último mes (30 días) olvidó u olvidó una píldora? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta21" id="opcion1r21" value="a" onchange="respuestaVeintiuno(event)"><span
+              for="opcion1r21"> Nunca.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta21" id="opcion2r21" value="b" onchange="respuestaVeintiuno(event)"><span
+              for="opcion2r21"> Una vez.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta21" id="opcion3r21" value="c" onchange="respuestaVeintiuno(event)"><span
+              for="opcion3r21"> Dos veces .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta21" id="opcion4r21" value="d" onchange="respuestaVeintiuno(event)"><span
+              for="opcion4r21"> Tres o más.</span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta22">22. ¿Planeas MANTENER TOMAR píldoras anticonceptivas? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta22" id="opcion1r22" value="a" onchange="respuestaVeintidos(event)"><span
+              for="opcion1r22"> Si.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta22" id="opcion2r22" value="b" onchange="respuestaVeintidos(event)"><span
+              for="opcion2r22"> No.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta22" id="opcion3r22" value="c" onchange="respuestaVeintidos(event)"><span
+              for="opcion3r22"> No estoy seguro. </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta23">23. ¿Cuánto tiempo ha estado usando la vacuna Depo-Provera? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta23" id="opcion1r23" value="a" onchange="respuestaVeintitres(event)"><span
+              for="opcion1r23"> Un mes o menos .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta23" id="opcion2r23" value="b" onchange="respuestaVeintitres(event)"><span
+              for="opcion2r23"> Más de un mes pero menos de 6 meses .</span>
+            <br>
+          </label>
+        </p>
+      
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta23" id="opcion3r23" value="c" onchange="respuestaVeintitres(event)"><span
+              for="opcion3r23"> 6 meses o más . </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta24">24. ¿Cuántas veces en los últimos 6 meses ha perdido la oportunidad de tomar su Depo-Provera
+          a tiempo? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta24" id="opcion1r24" value="a" onchange="respuestaVeinticuatro(event)"><span
+              for="opcion1r24"> Nunca .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta24" id="opcion2r24" value="b" onchange="respuestaVeinticuatro(event)"><span
+              for="opcion2r24"> Una vez .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta24" id="opcion3r24" value="c" onchange="respuestaVeinticuatro(event)"><span
+              for="opcion3r24"> Dos veces . </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta25">25. ¿Planea SEGUIR RECIBIENDO las inyecciones Depo-Provera cada 3 meses? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta25" id="opcion1r25" value="a" onchange="respuestaVeinticinco(event)"><span
+              for="opcion1r25"> Si.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta25" id="opcion2r25" value="b" onchange="respuestaVeinticinco(event)"><span
+              for="opcion2r25"> No.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta25" id="opcion3r25" value="c" onchange="respuestaVeinticinco(event)"><span
+              for="opcion3r25"> No estoy seguro. </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta26">26. ¿Cuánto tiempo ha estado usando el parche anticonceptivo o el anillo vaginal? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta26" id="opcion1r26" value="a" onchange="respuestaVeintiseis(event)"><span
+              for="opcion1r26"> Un mes o menos .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta26" id="opcion2r26" value="b" onchange="respuestaVeintiseis(event)"><span
+              for="opcion2r26"> Más de un mes pero menos de 6 meses .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta26" id="opcion3r26" value="c" onchange="respuestaVeintiseis(event)"><span
+              for="opcion3r26"> 6 meses o más . </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta27"> 27. ¿Cuántas veces en el mes pasado (30 días) NO se ha puesto el parche anticonceptivo o NO
+          usó su anillo vaginal cuando se suponía que lo hicieras? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta27" id="opcion1r27" value="a" onchange="respuestaVeintisiete(event)"><span
+              for="opcion1r27"> Nunca .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta27" id="opcion2r27" value="c" onchange="respuestaVeintisiete(event)"><span
+              for="opcion2r27"> Una vez .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta27" id="opcion3r27" value="d" onchange="respuestaVeintisiete(event)"><span
+              for="opcion3r27"> Dos veces . </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta28">28. ¿Planea MANTENER USANDO el parche anticonceptivo o anillo vaginal? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta28" id="opcion1r28" value="a" onchange="respuestaVeintiocho(event)"><span
+              for="opcion1r28"> Si.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta28" id="opcion2r28" value="b" onchange="respuestaVeintiocho(event)"><span
+              for="opcion2r28"> No.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta28" id="opcion3r28" value="c" onchange="respuestaVeintiocho(event)"><span
+              for="opcion3r28"> No estoy seguro. </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta29">29. ¿Cuánto tiempo ha estado usando Implanon o el DIU para la prevención de embarazo? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta29" id="opcion1r29" value="a" onchange="respuestaVeintinueve(event)"><span
+              for="opcion1r29"> Un mes o menos .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta29" id="opcion2r29" value="b" onchange="respuestaVeintinueve(event)"><span
+              for="opcion2r29"> Más de un mes pero menos de 6 meses .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta29" id="opcion3r29" value="c" onchange="respuestaVeintinueve(event)"><span
+              for="opcion3r29"> 6 meses o más . </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta30">30. ¿Planea SEGUIR USANDO Implanon o el DIU como método anticonceptivo? </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta30" id="opcion1r30" value="a" onchange="respuestaTreinta(event)"><span
+              for="opcion1r30"> Si.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta30" id="opcion2r30" value="b" onchange="respuestaTreinta(event)"><span
+              for="opcion2r30"> No.</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta30" id="opcion3r30" value="c" onchange="respuestaTreinta(event)"><span
+              for="opcion3r30"> No estoy seguro. </span>
+            <br><br>
+          </label>
+        </p>
+      
+        <span for="pregunta31">31. En el próximo mes (30 días), ¿qué tipo de control de natalidad piensa comenzar a usar?
+        </span>
+        <br><br>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta31" id="opcion1r31" value="a" onchange="respuestaTreintayuno(event)"><span
+              for="opcion1r31"> Píldoras anticonceptivas .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta31" id="opcion2r31" value="b" onchange="respuestaTreintayuno(event)"><span
+              for="opcion2r31"> Inyecciones de Depo-Provera .</span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta31" id="opcion3r31" value="c" onchange="respuestaTreintayuno(event)"><span
+              for="opcion3r31"> Anillo vaginal. </span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta31" id="opcion4r31" value="d" onchange="respuestaTreintayuno(event)"><span
+              for="opcion4r31"> Parche. </span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta31" id="opcion5r31" value="e" onchange="respuestaTreintayuno(event)"><span
+              for="opcion5r31"> Implanon (Implante hormonal) o DIU (dispositivo intrauterino). </span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta31" id="opcion6r31" value="f" onchange="respuestaTreintayuno(event)"><span
+              for="opcion6r31"> Sólo condones. </span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta31" id="opcion7r31" value="g" onchange="respuestaTreintayuno(event)"><span
+              for="opcion7r31"> Anticoncepción de emergencia. </span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta31" id="opcion8r31" value="h" onchange="respuestaTreintayuno(event)"><span
+              for="opcion8r31"> Nada. </span>
+            <br>
+          </label>
+        </p>
+      
+        <p>
+          <label>
+            <input class="with-gap" type="radio" name="respuesta31" id="opcion9r31" value="i" onchange="respuestaTreintayuno(event)"><span
+              for="opcion9r31"> Otro. </span>
+            <br><br>
+          </label>
+        </p>
+    </div>
+    <div class="btn-container">
+      <input class="btn waves-effect waves-light boton" type="submit" name="enviar" id="enviar" value="Enviar">
+    </div>
+  </form>
+</div>
+<script src="js/app.js"></script>
+</body>
 </html>
